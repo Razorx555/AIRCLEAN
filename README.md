@@ -16,7 +16,7 @@ robots.txt, sitemap.xml     → SEO
 
 ## Antes de publicar
 
-1. **Domínio:** troque `https://www.seudominio.com.br/` pelo endereço real em `index.html`, `robots.txt` e `sitemap.xml`.
+1. **Domínio:** o site usa aircleanclimatização.com. Nos arquivos técnicos (`index.html`, `robots.txt`, `sitemap.xml`) ele aparece como `xn--aircleanclimatizao-itb3f.com`, que é o mesmo endereço no formato padrão da internet.
 2. **Fotos:** para trocar ou adicionar, coloque o arquivo em `assets/trabalhos/` (.webp ou .jpg, cerca de 1000 px de largura) e copie um bloco `<figure class="work">` da seção Nossos trabalhos, ajustando `src`, `alt` e `data-cat` (instalacao, higienizacao, manutencao ou ambientes).
 3. **Depoimentos:** ficam na seção Depoimentos do `index.html`. Copie um bloco `<figure class="review">` para adicionar um novo. Use somente avaliações reais.
 4. **Nota do Google:** a nota 4,8 e o total de 54 avaliações estão escritos no `index.html`. Atualize de tempos em tempos.
