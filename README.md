@@ -11,8 +11,19 @@ css/styles.css              → cores, fontes e layout (cores no topo, em :root)
 js/app.js                   → WhatsApp, menu, FAQ, galeria, formulário
 assets/                     → logo e favicon
 assets/trabalhos/           → fotos reais da Air Clean (do Perfil da Empresa no Google)
+404.html                    → página de erro (endereço não encontrado)
+.htaccess                   → HTTPS obrigatório, sem www, cache e compressão
 robots.txt, sitemap.xml     → SEO
+
+Páginas de serviço e cidade (SEO local):
+instalacao-de-ar-condicionado-guarulhos/
+limpeza-de-ar-condicionado-guarulhos/
+manutencao-de-ar-condicionado-guarulhos/
+pmoc-guarulhos-sao-paulo/
+ar-condicionado-sao-paulo/
 ```
+
+Ao criar uma página nova, inclua o endereço dela no `sitemap.xml`.
 
 ## Antes de publicar
 

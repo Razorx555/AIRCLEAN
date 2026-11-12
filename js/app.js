@@ -48,10 +48,10 @@
   var heroOut = false, finalIn = false;
   function updateFloat() { if (floatBtn) floatBtn.classList.toggle("is-hidden", !heroOut || finalIn); }
   window.addEventListener("scroll", function () {
-    header.classList.toggle("is-scrolled", window.scrollY > 8);
+    if (header) header.classList.toggle("is-scrolled", window.scrollY > 8);
   }, { passive: true });
 
-  if ("IntersectionObserver" in window) {
+  if ("IntersectionObserver" in window && hero && finalSec) {
     new IntersectionObserver(function (e) { heroOut = !e[0].isIntersecting; updateFloat(); }, { rootMargin: "-40% 0px 0px 0px" }).observe(hero);
     new IntersectionObserver(function (e) { finalIn = e[0].isIntersecting; updateFloat(); }, { threshold: 0.25 }).observe(finalSec);
   } else if (floatBtn) {
@@ -61,6 +61,7 @@
   /* ---------------- menu mobile ---------------- */
   var menu = $("#menu-mobile");
   var openBtn = $(".header-cta .menu-toggle");
+  if (menu && openBtn) {
   function setMenu(open) {
     menu.hidden = !open;
     openBtn.setAttribute("aria-expanded", String(open));
@@ -71,6 +72,7 @@
   $("[data-close-menu]", menu).addEventListener("click", function () { setMenu(false); });
   $$("a", menu).forEach(function (a) { a.addEventListener("click", function () { setMenu(false); }); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !menu.hidden) setMenu(false); });
+  }
 
   /* ---------------- revelação na rolagem ---------------- */
   var reveals = $$(".reveal");
@@ -94,15 +96,15 @@
 
   /* ---------------- galeria: filtros + ampliação ---------------- */
   var gal = $("#gallery"), moreBtn = $("#gallery-more"), expanded = false;
-  moreBtn.addEventListener("click", function () { expanded = true; gal.classList.add("show-all"); moreBtn.parentElement.hidden = true; });
+  if (moreBtn && gal) moreBtn.addEventListener("click", function () { expanded = true; gal.classList.add("show-all"); moreBtn.parentElement.hidden = true; });
   var chips = $$(".chip");
   chips.forEach(function (chip) {
     chip.addEventListener("click", function () {
       var f = chip.getAttribute("data-filter");
       chips.forEach(function (c) { c.setAttribute("aria-pressed", String(c === chip)); });
       $$(".work").forEach(function (w) { w.hidden = !(f === "todos" || w.getAttribute("data-cat") === f); });
-      gal.classList.toggle("show-all", f !== "todos" || expanded);
-      moreBtn.parentElement.hidden = f !== "todos" || expanded;
+      if (gal) gal.classList.toggle("show-all", f !== "todos" || expanded);
+      if (moreBtn) moreBtn.parentElement.hidden = f !== "todos" || expanded;
     });
   });
   var lb = $("#lightbox");
@@ -126,6 +128,7 @@
      em qualquer navegador, inclusive no celular, sem depender de pop-up. */
   var form = $("#quote-form");
   var sendBtn = $("#form-send");
+  if (form && sendBtn) {
   var campos = { nome: $("#f-nome"), servico: $("#f-servico"), tipo: $("#f-tipo"), local: $("#f-local"), msg: $("#f-msg") };
 
   function montarMensagem() {
@@ -172,6 +175,7 @@
     if (validar()) { atualizarLink(); sendBtn.click(); }
   });
   atualizarLink();
+  }
 
   var ano = $("#ano");
   if (ano) ano.textContent = new Date().getFullYear();
